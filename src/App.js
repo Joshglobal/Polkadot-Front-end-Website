@@ -7,7 +7,9 @@ import { DeveloperConsole } from './substrate-lib/components';
 
 import AccountSelector from './AccountSelector';
 import Balances from './Balances';
+import BlockInfo from './BlockInfo';
 import BlockNumber from './BlockNumber';
+import BlockSearch from './BlockSearch';
 import Events from './Events';
 import Interactor from './Interactor';
 import Metadata from './Metadata';
@@ -34,7 +36,7 @@ function Main () {
       <Grid.Column>
         <Message negative compact floating
           header='Error Connecting to Substrate'
-          content={`${JSON.stringify(err, null, 4)}`}
+          content={`${JSON.stringify(err,null,4)}`}
         />
       </Grid.Column>
     </Grid>;
@@ -62,18 +64,10 @@ function Main () {
             <BlockNumber finalized />
           </Grid.Row>
           <Grid.Row stretched>
-            <Balances />
+            <BlockInfo />
           </Grid.Row>
-          <Grid.Row>
-            <Transfer accountPair={accountPair} />
-            <Upgrade accountPair={accountPair} />
-          </Grid.Row>
-          <Grid.Row>
-            <Interactor accountPair={accountPair} />
-            <Events />
-          </Grid.Row>
-          <Grid.Row>
-            <TemplateModule accountPair={accountPair} />
+          <Grid.Row stretched>
+            <BlockSearch />
           </Grid.Row>
         </Grid>
       </Container>
